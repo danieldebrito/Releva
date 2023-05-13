@@ -1,0 +1,7 @@
+{
+  "name": "Releva",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
