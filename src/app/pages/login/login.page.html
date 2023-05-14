@@ -1,0 +1,52 @@
+<ion-content class="background-image ion-align-items-center ion-text-center" style="height: 100vh;">
+  <div style="display: flex; flex-direction: column; justify-content: center;">
+
+    <form #form="ngForm" (ngSubmit)="login(form)">
+      <ion-grid>
+        <ion-row color="primary" class="ion-justify-content-center">
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <ion-text color="secondary">
+              <h2>Ingresá a Releva</h2>
+            </ion-text>
+            <div padding>
+              <ion-item>
+                <ion-input name="email" type="email" placeholder="tucorreo@email.com" ngModel required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
+              </ion-item>
+            </div>
+            <div padding>
+              <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Entrar</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        ADM
+      </ion-fab-button>
+      <ion-fab-button>
+        INV
+      </ion-fab-button>
+      <ion-fab-button>
+        USR
+      </ion-fab-button>
+      <ion-fab-button>
+        ANN
+      </ion-fab-button>
+      <ion-fab-button>
+        TST
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

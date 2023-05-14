@@ -34,7 +34,4 @@ export class SplashComponent  implements OnInit {
   ngOnInit() {
     this.reproducirSonido();
   }
-
-
-
 }
