@@ -12,20 +12,29 @@
               <ion-item>
                 <div class="input-group">
                   <div class="input-group-text"><i class="fa fa-user"></i></div>
-                  <ion-input  type="text" class="form-control" value="" formControlName="email" (click)="errorFalse()"
+                  <ion-input  type="email" class="form-control" formControlName="email" (click)="errorFalse()"
                     placeholder="email" />
+                    <small class="invalid" *ngIf="loginForm.controls.email.errors?.['email']">
+                      Debe ingresar un e-mail valido.
+                    </small>
                 </div>
               </ion-item>
               <ion-item>
                 <div class="input-group">
                   <div class="input-group-text"><i class="fa fa-key"></i></div>
-                  <ion-input  type="text" class="form-control" formControlName="password" (click)="errorFalse()"
+                  <ion-input  type="password" class="form-control" formControlName="password" (click)="errorFalse()"
                     placeholder="contraseña" />
+                    <small class="invalid" *ngIf="loginForm.controls.email.errors?.['email']">
+                      Debe ingresar una contraseña valida.
+                    </small>
                 </div>
               </ion-item>
             </div>
             <div padding>
               <ion-button size="large" type="submit" [disabled]="loginForm.invalid" expand="block">Entrar</ion-button>
+              <!--
+                  <ion-button size="large" type="submit" [disabled]="loginForm.invalid" expand="block">Entrar</ion-button>
+              -->
             </div>
           </ion-col>
         </ion-row>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { Usuario } from 'src/app/class/usuario';
@@ -19,21 +19,32 @@ export class LoginPage implements OnInit {
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4)]),
   });
 
-  public constructor(private usuariosSv: UsersService) { }
+  public constructor(
+    private usuariosSv: UsersService,
+    private navCtrl: NavController) { }
 
-  async onLogin(): Promise<void> {
+  public onLogin(): void {
     const { email, password } = this.loginForm.value;
+  
     if (email && password) {
-      try {
-        // const user = await this.authService.SignIn(email, password);
-      } catch (error) {
-        console.log(error);
-      }
+      this.usuariosSv.checkLogin(email, password).subscribe(
+        (usuarios) => {
+          if (usuarios.length > 0) {
+            this.navCtrl.navigateRoot('/home');
+          } else {
+            console.log('Usuario no encontrado en la base de datos, mostrar mensaje de error');
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }
   }
+
 
   public AutoSignIn(iniciales: string) {
     switch (iniciales) {

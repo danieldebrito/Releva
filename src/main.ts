@@ -10,6 +10,8 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app'
 import { getFirestore, provideFirestore } from '@angular/fire/firestore'
 import { environment } from './environments/environment'; 
+import { provideStorage,getStorage } from '@angular/fire/storage';
+
 
 // Call the element loader after the platform has been bootstrapped
 defineCustomElements(window);
@@ -24,7 +26,8 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
       IonicModule.forRoot({}),
       provideFirebaseApp( () => initializeApp(environment.firebase)),
-      provideFirestore( () => getFirestore() )
+      provideFirestore( () => getFirestore() ),
+      provideStorage(() => getStorage())
       ),
     provideRouter(routes),
   ],
