@@ -7,9 +7,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="background-image">
 
-  <ion-card (click)="navegarLindas()">
+  <ion-card (click)="navegarLindas()" color="primary">
     <img alt="Silhouette of mountains" src="../../../assets/card-linda.png" />
     <ion-card-header>
       <ion-card-title>Cosas Lindas</ion-card-title>
@@ -21,7 +21,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card (click)="navegarFeas()">
+  <ion-card (click)="navegarFeas()" color="primary">
     <img alt="Silhouette of mountains" src="../../../assets/card-feo.png" />
     <ion-card-header>
       <ion-card-title>Cosas Feas</ion-card-title>
